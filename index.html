@@ -43,24 +43,24 @@
     }
 
     .logo-area {
+      width: 240px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
 
     .logo-box img {
       width: 240px;
       height: 90px;
       object-fit: contain;
-      object-position: center;
+      object-position: center center;
       display: block;
     }
 
-    /* Employee Verification Portal - CENTER & BIGGER */
-
     .portal-name {
       margin-top: 4px;
-      width: 100%;
+      width: 240px;
       text-align: center;
       font-size: 17px;
       font-weight: 700;
@@ -102,6 +102,8 @@
       border-bottom: 1px solid #edf2f7;
     }
 
+    /* ================= EMPLOYEE ICON ================= */
+
     .verification-icon {
       width: 58px;
       height: 58px;
@@ -112,8 +114,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 27px;
-      font-weight: bold;
+    }
+
+    .verification-icon svg {
+      width: 31px;
+      height: 31px;
+      display: block;
     }
 
     .card-title {
@@ -304,15 +310,19 @@
         padding: 12px 15px;
       }
 
+      .logo-area {
+        width: 175px;
+      }
+
       .logo-box img {
         width: 175px;
         height: 70px;
       }
 
       .portal-name {
-        font-size: 14px;
-        width: 100%;
+        width: 175px;
         text-align: center;
+        font-size: 14px;
       }
 
       .secure-label {
@@ -402,9 +412,36 @@
 
       <div class="card-top">
 
+        <!-- Employee / User SVG Icon -->
+
         <div class="verification-icon">
-          👤
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Employee User Icon"
+          >
+
+            <circle
+              cx="12"
+              cy="8"
+              r="4"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <path
+              d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
         </div>
+
 
         <h1 class="card-title">
           Employee ID Verification
