@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee ID Verification</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f8fc;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: #0f5ea8;
+      color: #ffffff;
+      padding: 22px 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .company-logo {
+      width: 48px;
+      height: 48px;
+      background: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f5ea8;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .company-name {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .company-subtitle {
+      margin-top: 4px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: 45px auto;
+      padding: 0 18px;
+    }
+
+    .verification-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 35px;
+      box-shadow: 0 8px 30px rgba(15, 94, 168, 0.10);
+      border: 1px solid #e2eaf2;
+    }
+
+    .card-title {
+      color: #0f5ea8;
+      font-size: 27px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 56px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0 16px;
+      font-size: 17px;
+      color: #1e293b;
+      background: #ffffff;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .form-input:focus {
+      border-color: #0f5ea8;
+      box-shadow: 0 0 0 3px rgba(15, 94, 168, 0.12);
+    }
+
+    .check-button {
+      width: 100%;
+      height: 56px;
+      border: none;
+      border-radius: 8px;
+      background: #0f5ea8;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: 0.2s ease;
+    }
+
+    .check-button:hover {
+      background: #0b4d8a;
+    }
+
+    .result-area {
+      margin-top: 30px;
+      border: 1px dashed #b8c9d9;
+      border-radius: 10px;
+      padding: 25px;
+      background: #f8fbfe;
+      min-height: 180px;
+    }
+
+    .result-placeholder {
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #7b8da0;
+    }
+
+    .result-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #e5f0fa;
+      color: #0f5ea8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    /* Sample result layout - content can be replaced later */
+    .result-content {
+      display: none;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .employee-photo {
+      width: 90px;
+      height: 110px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+
+    .employee-details {
+      flex: 1;
+    }
+
+    .employee-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .employee-id {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 12px;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        padding: 18px 15px;
+      }
+
+      .company-name {
+        font-size: 18px;
+      }
+
+      .company-subtitle {
+        font-size: 12px;
+      }
+
+      .company-logo {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+      }
+
+      .container {
+        margin: 25px auto;
+        padding: 0 12px;
+      }
+
+      .verification-card {
+        padding: 25px 18px;
+        border-radius: 12px;
+      }
+
+      .card-title {
+        font-size: 23px;
+      }
+
+      .card-description {
+        font-size: 13px;
+      }
+
+      .form-input,
+      .check-button {
+        height: 54px;
+      }
+
+      .result-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="company-logo">CO</div>
+
+      <div>
+        <div class="company-name">YOUR COMPANY NAME</div>
+        <div class="company-subtitle">Employee Verification Portal</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Verification Section -->
+  <main class="container">
+
+    <section class="verification-card">
+
+      <h1 class="card-title">Employee ID Verification</h1>
+
+      <p class="card-description">
+        Enter the employee identification details below to verify
+        employee information and status.
+      </p>
+
+      <!-- Employee ID -->
+      <div class="form-group">
+        <label class="form-label" for="employeeId">
+          Employee ID
+        </label>
+
+        <input
+          type="text"
+          id="employeeId"
+          class="form-input"
+          placeholder="Enter Employee ID"
+        >
+      </div>
+
+      <!-- Unique Token -->
+      <div class="form-group">
+        <label class="form-label" for="uniqueToken">
+          Unique Token
+        </label>
+
+        <input
+          type="text"
+          id="uniqueToken"
+          class="form-input"
+          placeholder="Enter Unique Token"
+        >
+      </div>
+
+      <!-- Check Button -->
+      <button type="button" class="check-button">
+        Check Status
+      </button>
+
+      <!-- Verification Result Placeholder -->
+      <div class="result-area">
+
+        <div class="result-placeholder">
+          <div class="result-icon">✓</div>
+
+          <strong>Verification Result</strong>
+
+          <p style="margin-top: 6px; font-size: 13px;">
+            Employee verification details will appear here.
+          </p>
+        </div>
+
+        <!--
+          Sample result structure.
+          Display can be changed to "flex" when functionality is added.
+
+          <div class="result-content">
+            <img
+              src="employee-photo.jpg"
+              class="employee-photo"
+              alt="Employee Photo"
+            >
+
+            <div class="employee-details">
+              <div class="employee-name">Employee Name</div>
+              <div class="employee-id">Employee ID: EMP001</div>
+              <span class="status-badge">VERIFIED</span>
+            </div>
+          </div>
+        -->
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 Your Company Name · Employee Verification System
+  </footer>
+
+</body>
+</html>
