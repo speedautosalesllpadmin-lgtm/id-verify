@@ -22,53 +22,50 @@
 
     /* ================= HEADER ================= */
 
-    .header {
-      background: #075ca8;
-      color: white;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-    }
+.header {
+  background: #ffffff;
+  color: #075ca8;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
 
-    .header-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 
-    .logo-box img {
-  width: 46px;
-  height: 46px;
+.logo-box img {
+  width: 220px;
+  height: 90px;
   object-fit: contain;
-    }
+  display: block;
+}
 
-    .company-name {
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
+.portal-name {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #075ca8;
+}
 
-    .portal-name {
-      margin-top: 4px;
-      font-size: 13px;
-      opacity: 0.9;
-    }
-
-    .secure-label {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 8px 13px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-    }
+.secure-label {
+  background: #e8f3fc;
+  border: 1px solid #075ca8;
+  color: #075ca8;
+  padding: 9px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
 
     /* ================= MAIN ================= */
 
@@ -289,101 +286,89 @@
 
     /* ================= MOBILE ================= */
 
-    @media (max-width: 600px) {
+@media (max-width: 600px) {
 
-      .header-inner {
-        padding: 15px;
-      }
+  .header-inner {
+    padding: 12px 15px;
+  }
 
-      .logo-box {
-        width: 44px;
-        height: 44px;
-        font-size: 16px;
-      }
+  .logo-box img {
+    width: 165px;
+    height: 65px;
+  }
 
-      .company-name {
-        font-size: 19px;
-      }
+  .portal-name {
+    font-size: 11px;
+  }
 
-      .portal-name {
-        font-size: 11px;
-      }
+  .secure-label {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
 
-      .secure-label {
-        display: none;
-      }
+  .container {
+    margin: 25px auto;
+    padding: 0 12px;
+  }
 
-      .container {
-        margin: 25px auto;
-        padding: 0 12px;
-      }
+  .card-top {
+    padding: 27px 20px 21px;
+  }
 
-      .card-top {
-        padding: 27px 20px 21px;
-      }
+  .form-section {
+    padding: 25px 20px 25px;
+  }
 
-      .form-section {
-        padding: 25px 20px 25px;
-      }
+  .card-title {
+    font-size: 23px;
+  }
 
-      .card-title {
-        font-size: 23px;
-      }
+  .card-description {
+    font-size: 13px;
+  }
 
-      .card-description {
-        font-size: 13px;
-      }
+  .form-input,
+  .check-button {
+    height: 54px;
+  }
 
-      .form-input,
-      .check-button {
-        height: 54px;
-      }
+  .result-area {
+    padding: 20px;
+  }
 
-      .result-area {
-        padding: 20px;
-      }
-
-      .employee-result {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-
-<body>
+  .employee-result {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
   <!-- ================= HEADER ================= -->
 
-  <header class="header">
+<header class="header">
 
-    <div class="header-inner">
+  <div class="header-inner">
 
-      <div class="brand">
+    <div class="brand">
 
+      <div>
         <div class="logo-box">
-  <img src="./speed-tvs-logo.png.png" alt="SPEED TVS">
-</div>
-
-        <div>
-          <div class="company-name">
-            SPEED TVS
-          </div>
-
-          <div class="portal-name">
-            Employee Verification Portal
-          </div>
+          <img src="./speed-tvs-logo.png.png" alt="SPEED TVS">
         </div>
 
-      </div>
-
-      <div class="secure-label">
-        🔒 Secure Verification
+        <div class="portal-name">
+          Employee Verification Portal
+        </div>
       </div>
 
     </div>
 
-  </header>
+    <div class="secure-label">
+      🔒 Secure Verification
+    </div>
+
+  </div>
+
+</header>
 
 
   <!-- ================= MAIN ================= -->
