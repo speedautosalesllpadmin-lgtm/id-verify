@@ -3,120 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Employee ID Verification</title>
+
+  <title>SPEED TVS | Employee Verification</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f8fc;
-      color: #1f2937;
+      background: #f3f7fb;
+      color: #1e293b;
       min-height: 100vh;
     }
 
+    /* ================= HEADER ================= */
+
     .header {
-      background: #0f5ea8;
-      color: #ffffff;
-      padding: 22px 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      background: #075ca8;
+      color: white;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     }
 
     .header-inner {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
+      padding: 18px 25px;
       display: flex;
       align-items: center;
-      gap: 15px;
+      justify-content: space-between;
     }
 
-    .company-logo {
-      width: 48px;
-      height: 48px;
-      background: #ffffff;
-      border-radius: 8px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-box {
+      width: 52px;
+      height: 52px;
+      background: white;
+      color: #075ca8;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #0f5ea8;
-      font-weight: 700;
-      font-size: 20px;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .company-name {
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
-    .company-subtitle {
+    .portal-name {
       margin-top: 4px;
       font-size: 13px;
       opacity: 0.9;
     }
 
+    .secure-label {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 13px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ================= MAIN ================= */
+
     .container {
       width: 100%;
-      max-width: 650px;
+      max-width: 680px;
       margin: 45px auto;
       padding: 0 18px;
     }
 
     .verification-card {
       background: #ffffff;
-      border-radius: 14px;
-      padding: 35px;
-      box-shadow: 0 8px 30px rgba(15, 94, 168, 0.10);
-      border: 1px solid #e2eaf2;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 35px rgba(15, 80, 130, 0.10);
+      overflow: hidden;
+    }
+
+    .card-top {
+      padding: 32px 35px 24px;
+      text-align: center;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .verification-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 15px;
+      background: #e8f3fc;
+      color: #075ca8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      font-weight: bold;
     }
 
     .card-title {
-      color: #0f5ea8;
       font-size: 27px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 8px;
+      color: #0f172a;
+      font-weight: 750;
     }
 
     .card-description {
-      text-align: center;
+      margin-top: 9px;
       color: #64748b;
       font-size: 14px;
       line-height: 1.6;
-      margin-bottom: 30px;
+    }
+
+    /* ================= FORM ================= */
+
+    .form-section {
+      padding: 30px 35px 35px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 21px;
     }
 
     .form-label {
       display: block;
+      margin-bottom: 8px;
+      color: #334155;
       font-size: 14px;
       font-weight: 700;
-      color: #334155;
-      margin-bottom: 8px;
     }
 
     .form-input {
       width: 100%;
       height: 56px;
+      padding: 0 16px;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
-      padding: 0 16px;
-      font-size: 17px;
-      color: #1e293b;
-      background: #ffffff;
       outline: none;
-      transition: 0.2s ease;
+      background: white;
+      color: #1e293b;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: #94a3b8;
     }
 
     .form-input:focus {
-      border-color: #0f5ea8;
-      box-shadow: 0 0 0 3px rgba(15, 94, 168, 0.12);
+      border-color: #075ca8;
+      box-shadow: 0 0 0 3px rgba(7, 92, 168, 0.12);
     }
 
     .check-button {
@@ -124,30 +173,38 @@
       height: 56px;
       border: none;
       border-radius: 8px;
-      background: #0f5ea8;
-      color: #ffffff;
-      font-size: 17px;
+      background: #075ca8;
+      color: white;
+      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      margin-top: 8px;
       transition: 0.2s ease;
     }
 
     .check-button:hover {
-      background: #0b4d8a;
+      background: #064d8e;
     }
 
+    /* ================= RESULT ================= */
+
     .result-area {
-      margin-top: 30px;
+      margin-top: 28px;
       border: 1px dashed #b8c9d9;
+      background: #f8fbfe;
       border-radius: 10px;
       padding: 25px;
-      background: #f8fbfe;
-      min-height: 180px;
+      min-height: 190px;
+    }
+
+    .result-heading {
+      color: #075ca8;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 15px;
     }
 
     .result-placeholder {
-      min-height: 130px;
+      min-height: 115px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -156,85 +213,112 @@
       color: #7b8da0;
     }
 
-    .result-icon {
-      width: 48px;
-      height: 48px;
+    .placeholder-icon {
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      background: #e5f0fa;
-      color: #0f5ea8;
+      background: #e7f1fa;
+      color: #075ca8;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      margin-bottom: 12px;
+      font-size: 21px;
+      margin-bottom: 10px;
     }
 
-    /* Sample result layout - content can be replaced later */
-    .result-content {
+    .placeholder-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    .placeholder-text {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    /* ================= SAMPLE RESULT ================= */
+
+    .employee-result {
       display: none;
       align-items: center;
       gap: 20px;
     }
 
     .employee-photo {
-      width: 90px;
-      height: 110px;
+      width: 95px;
+      height: 115px;
       border-radius: 8px;
       object-fit: cover;
       background: #e2e8f0;
+      border: 1px solid #d5dee8;
     }
 
-    .employee-details {
+    .employee-info {
       flex: 1;
     }
 
     .employee-name {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 8px;
+      font-size: 21px;
+      font-weight: 750;
+      color: #0f172a;
+      margin-bottom: 7px;
     }
 
-    .employee-id {
-      font-size: 14px;
+    .employee-detail {
       color: #64748b;
-      margin-bottom: 10px;
+      font-size: 13px;
+      margin-bottom: 5px;
     }
 
     .status-badge {
       display: inline-block;
-      padding: 6px 12px;
+      margin-top: 8px;
+      padding: 7px 14px;
       border-radius: 20px;
       background: #dcfce7;
       color: #15803d;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
     }
+
+    /* ================= FOOTER ================= */
 
     .footer {
       text-align: center;
+      padding: 22px 15px;
       color: #94a3b8;
       font-size: 12px;
-      padding: 20px;
     }
 
+    .footer strong {
+      color: #64748b;
+    }
+
+    /* ================= MOBILE ================= */
+
     @media (max-width: 600px) {
-      .header {
-        padding: 18px 15px;
+
+      .header-inner {
+        padding: 15px;
+      }
+
+      .logo-box {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
       }
 
       .company-name {
-        font-size: 18px;
+        font-size: 19px;
       }
 
-      .company-subtitle {
-        font-size: 12px;
+      .portal-name {
+        font-size: 11px;
       }
 
-      .company-logo {
-        width: 42px;
-        height: 42px;
-        font-size: 17px;
+      .secure-label {
+        display: none;
       }
 
       .container {
@@ -242,9 +326,12 @@
         padding: 0 12px;
       }
 
-      .verification-card {
-        padding: 25px 18px;
-        border-radius: 12px;
+      .card-top {
+        padding: 27px 20px 21px;
+      }
+
+      .form-section {
+        padding: 25px 20px 25px;
       }
 
       .card-title {
@@ -260,7 +347,11 @@
         height: 54px;
       }
 
-      .result-content {
+      .result-area {
+        padding: 20px;
+      }
+
+      .employee-result {
         flex-direction: column;
         text-align: center;
       }
@@ -270,94 +361,172 @@
 
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="company-logo">CO</div>
+  <!-- ================= HEADER ================= -->
 
-      <div>
-        <div class="company-name">SPEED TVS</div>
-        <div class="company-subtitle">Employee Verification Portal</div>
+  <header class="header">
+
+    <div class="header-inner">
+
+      <div class="brand">
+
+        <div class="logo-box">
+          ST
+        </div>
+
+        <div>
+          <div class="company-name">
+            SPEED TVS
+          </div>
+
+          <div class="portal-name">
+            Employee Verification Portal
+          </div>
+        </div>
+
       </div>
+
+      <div class="secure-label">
+        🔒 Secure Verification
+      </div>
+
     </div>
+
   </header>
 
-  <!-- Main Verification Section -->
+
+  <!-- ================= MAIN ================= -->
+
   <main class="container">
 
     <section class="verification-card">
 
-      <h1 class="card-title">Employee ID Verification</h1>
+      <div class="card-top">
 
-      <p class="card-description">
-        Enter the employee identification details below to verify
-        employee information and status.
-      </p>
-
-      <!-- Employee ID -->
-      <div class="form-group">
-        <label class="form-label" for="employeeId">
-          Employee ID
-        </label>
-
-        <input
-          type="text"
-          id="employeeId"
-          class="form-input"
-          placeholder="Enter Employee ID"
-        >
-      </div>
-
-      <!-- Unique Token -->
-      <div class="form-group">
-        <label class="form-label" for="uniqueToken">
-          Unique Token
-        </label>
-
-        <input
-          type="text"
-          id="uniqueToken"
-          class="form-input"
-          placeholder="Enter Unique Token"
-        >
-      </div>
-
-      <!-- Check Button -->
-      <button type="button" class="check-button">
-        Check Status
-      </button>
-
-      <!-- Verification Result Placeholder -->
-      <div class="result-area">
-
-        <div class="result-placeholder">
-          <div class="result-icon">✓</div>
-
-          <strong>Verification Result</strong>
-
-          <p style="margin-top: 6px; font-size: 13px;">
-            Employee verification details will appear here.
-          </p>
+        <div class="verification-icon">
+          ✓
         </div>
 
-        <!--
-          Sample result structure.
-          Display can be changed to "flex" when functionality is added.
+        <h1 class="card-title">
+          Employee ID Verification
+        </h1>
 
-          <div class="result-content">
+        <p class="card-description">
+          Verify the employment status of a SPEED TVS employee
+          using their Employee ID and Unique Token.
+        </p>
+
+      </div>
+
+
+      <div class="form-section">
+
+        <!-- Employee ID -->
+
+        <div class="form-group">
+
+          <label class="form-label" for="employeeId">
+            Employee ID
+          </label>
+
+          <input
+            type="text"
+            id="employeeId"
+            class="form-input"
+            placeholder="Enter Employee ID"
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <!-- Unique Token -->
+
+        <div class="form-group">
+
+          <label class="form-label" for="uniqueToken">
+            Unique Token
+          </label>
+
+          <input
+            type="text"
+            id="uniqueToken"
+            class="form-input"
+            placeholder="Enter Unique Token"
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <!-- Button -->
+
+        <button type="button" class="check-button">
+          Check Status
+        </button>
+
+
+        <!-- Result -->
+
+        <div class="result-area">
+
+          <div class="result-heading">
+            Verification Result
+          </div>
+
+          <div class="result-placeholder">
+
+            <div class="placeholder-icon">
+              ✓
+            </div>
+
+            <div class="placeholder-title">
+              Verification Result
+            </div>
+
+            <div class="placeholder-text">
+              Employee details will appear here after verification.
+            </div>
+
+          </div>
+
+
+          <!--
+          SAMPLE EMPLOYEE RESULT
+
+          Later functionality ke liye is section ko use kiya ja sakta hai.
+
+          <div class="employee-result">
+
             <img
               src="employee-photo.jpg"
               class="employee-photo"
               alt="Employee Photo"
             >
 
-            <div class="employee-details">
-              <div class="employee-name">Employee Name</div>
-              <div class="employee-id">Employee ID: EMP001</div>
-              <span class="status-badge">VERIFIED</span>
+            <div class="employee-info">
+
+              <div class="employee-name">
+                Employee Name
+              </div>
+
+              <div class="employee-detail">
+                Employee ID: EMP001
+              </div>
+
+              <div class="employee-detail">
+                Designation: Sales Executive
+              </div>
+
+              <span class="status-badge">
+                VERIFIED
+              </span>
+
             </div>
+
           </div>
-        -->
+          -->
+
+        </div>
 
       </div>
 
@@ -365,8 +534,14 @@
 
   </main>
 
+
+  <!-- ================= FOOTER ================= -->
+
   <footer class="footer">
-    © 2026 SPEED TVS · Employee Verification System
+
+    © 2026 <strong>SPEED TVS</strong>
+    · Employee Verification System
+
   </footer>
 
 </body>
